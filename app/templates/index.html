@@ -13,11 +13,11 @@
     <tbody>
     {% for person in persons %}
     <tr>
-        <td><a href="view/{{city.id}}">{{person.Name }}</a></td>
+        <td><a href="view/{{person.id}}">{{person.Name }}</a></td>
         <td>{{ person.Sex }}</td>
         <td>{{ person.Age }}</td>
         <td>{{ person.Height_in }}</td>
-        <td>{{ person.Weight_lb }}</td>
+        <td>{{ person.Weight_lbs }}</td>
     </tr>
     {% endfor %}
     </tbody>

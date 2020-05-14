@@ -22,61 +22,61 @@ def index():
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM biostatsT')
     result = cursor.fetchall()
-    return render_template('index.html', title='Home', user=user, cities=result)
+    return render_template('index.html', title='Home', user=user, persons=result)
 
 
-@app.route('/view/<int:city_id>', methods=['GET'])
-def record_view(city_id):
+@app.route('/view/<int:person_id>', methods=['GET'])
+def record_view(person_id):
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM biostatsT WHERE id=%s', city_id)
+    cursor.execute('SELECT * FROM biostatsT WHERE id=%s', person_id)
     result = cursor.fetchall()
-    return render_template('view.html', title='View Form', city=result[0])
+    return render_template('view.html', title='View Form', person=result[0])
 
 
-@app.route('/edit/<int:city_id>', methods=['GET'])
-def form_edit_get(city_id):
+@app.route('/edit/<int:person_id>', methods=['GET'])
+def form_edit_get(person_id):
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM biostats WHERE id=%s', city_id)
+    cursor.execute('SELECT * FROM biostats WHERE id=%s', person_id)
     result = cursor.fetchall()
-    return render_template('edit.html', title='Edit Form', city=result[0])
+    return render_template('edit.html', title='Edit Form', person=result[0])
 
 
-@app.route('/edit/<int:city_id>', methods=['POST'])
-def form_update_post(city_id):
+@app.route('/edit/<int:person_id>', methods=['POST'])
+def form_update_post(person_id):
     cursor = mysql.get_db().cursor()
     inputData = (request.form.get('Name'), request.form.get('Sex'), request.form.get('Age'),
-                 request.form.get('Height_in'), request.form.get('Weight_lb'))
+                 request.form.get('Height_in'), request.form.get('Weight_lbs'))
     sql_update_query = """UPDATE biostatsT t SET t.Name = %s, t.Sex = %s, t.Age = %s, t.Height_in = 
-    %s, t.Weight_lb = %s WHERE t.id = %s """
+    %s, t.Weight_lbs = %s WHERE t.id = %s """
     cursor.execute(sql_update_query, inputData)
     mysql.get_db().commit()
     return redirect("/", code=302)
 
-@app.route('/cities/new', methods=['GET'])
+@app.route('/persons/new', methods=['GET'])
 def form_insert_get():
     return render_template('new.html', title='New Person Form')
 
 
-@app.route('/cities/new', methods=['POST'])
+@app.route('/persons/new', methods=['POST'])
 def form_insert_post():
     cursor = mysql.get_db().cursor()
     inputData = (request.form.get('Name'), request.form.get('Sex'), request.form.get('Age'),
-                 request.form.get('Height_in'), request.form.get('Weight_lb'))
-    sql_insert_query = """INSERT INTO biostatsT (Name,Sex,Age,Height_in,Weight_lb ) VALUES (%s, %s,%s, %s,%s, %s,%s) """
+                 request.form.get('Height_in'), request.form.get('Weight_lbs'))
+    sql_insert_query = """INSERT INTO biostatsT (Name,Sex,Age,Height_in,Weight_lbs ) VALUES (%s, %s,%s, %s,%s) """
     cursor.execute(sql_insert_query, inputData)
     mysql.get_db().commit()
     return redirect("/", code=302)
 
-@app.route('/delete/<int:city_id>', methods=['POST'])
-def form_delete_post(city_id):
+@app.route('/delete/<int:person_id>', methods=['POST'])
+def form_delete_post(person_id):
     cursor = mysql.get_db().cursor()
     sql_delete_query = """DELETE FROM biostatsT WHERE id = %s """
-    cursor.execute(sql_delete_query, city_id)
+    cursor.execute(sql_delete_query, person_id)
     mysql.get_db().commit()
     return redirect("/", code=302)
 
 
-@app.route('/api/v1/cities', methods=['GET'])
+@app.route('/api/v1/persons', methods=['GET'])
 def api_browse() -> str:
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM biostatsT')
@@ -86,30 +86,30 @@ def api_browse() -> str:
     return resp
 
 
-@app.route('/api/v1/cities/<int:city_id>', methods=['GET'])
-def api_retrieve(city_id) -> str:
+@app.route('/api/v1/persons/<int:person_id>', methods=['GET'])
+def api_retrieve(person_id) -> str:
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM biostatsT WHERE id=%s', city_id)
+    cursor.execute('SELECT * FROM biostatsT WHERE id=%s', person_id)
     result = cursor.fetchall()
     json_result = json.dumps(result);
     resp = Response(json_result, status=200, mimetype='application/json')
     return resp
 
 
-@app.route('/api/v1/cities/', methods=['POST'])
+@app.route('/api/v1/persons/', methods=['POST'])
 def api_add() -> str:
     resp = Response(status=201, mimetype='application/json')
     return resp
 
 
-@app.route('/api/v1/cities/<int:city_id>', methods=['PUT'])
-def api_edit(city_id) -> str:
+@app.route('/api/v1/persons/<int:person_id>', methods=['PUT'])
+def api_edit(person_id) -> str:
     resp = Response(status=201, mimetype='application/json')
     return resp
 
 
-@app.route('/api/v1/cities/<int:city_id>', methods=['DELETE'])
-def api_delete(city_id) -> str:
+@app.route('/api/v1/persons/<int:person_id>', methods=['DELETE'])
+def api_delete(person_id) -> str:
     resp = Response(status=210, mimetype='application/json')
     return resp
 

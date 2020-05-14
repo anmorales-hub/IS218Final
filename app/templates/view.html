@@ -5,16 +5,16 @@
     <h5 class="card-title">{{ person.Name }}</h5>
 
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">Latitude: {{ person.Sex }}</li>
-        <li class="list-group-item">Longitude: {{ person.Age }}</li>
-        <li class="list-group-item">Capital Status: {{ person.Height_in }}</li>
-        <li class="list-group-item">Country: {{ person.Weight_lb }}</li>
+        <li class="list-group-item">Sex: {{ person.Sex }}</li>
+        <li class="list-group-item">Age: {{ person.Age }}</li>
+        <li class="list-group-item">Height(Inches): {{ person.Height_in }}</li>
+        <li class="list-group-item">Weight(Pounds): {{ person.Weight_lbs }}</li>
     </ul>
     <div class="card-body">
-        <a href="/edit/{{city.id}}" class="card-link btn btn-primary">edit</a>
+        <a href="/edit/{{person.id}}" class="card-link btn btn-primary">edit</a>
     </div>
 </div>
-<form action="/delete/{{city.id}}" method="post"><button type="submit" class="btn btn-danger">Delete</button></form>
+<form action="/delete/{{person.id}}" method="post"><button type="submit" class="btn btn-danger">Delete</button></form>
 
 
 {% endblock %}
