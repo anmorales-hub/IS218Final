@@ -36,7 +36,7 @@ def record_view(person_id):
 @app.route('/edit/<int:person_id>', methods=['GET'])
 def form_edit_get(person_id):
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM biostats WHERE id=%s', person_id)
+    cursor.execute('SELECT * FROM biostatsT WHERE id=%s', person_id)
     result = cursor.fetchall()
     return render_template('edit.html', title='Edit Form', person=result[0])
 
@@ -45,7 +45,7 @@ def form_edit_get(person_id):
 def form_update_post(person_id):
     cursor = mysql.get_db().cursor()
     inputData = (request.form.get('Name'), request.form.get('Sex'), request.form.get('Age'),
-                 request.form.get('Height_in'), request.form.get('Weight_lbs'))
+                 request.form.get('Height_in'), request.form.get('Weight_lbs'),person_id)
     sql_update_query = """UPDATE biostatsT t SET t.Name = %s, t.Sex = %s, t.Age = %s, t.Height_in = 
     %s, t.Weight_lbs = %s WHERE t.id = %s """
     cursor.execute(sql_update_query, inputData)
