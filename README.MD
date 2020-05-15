@@ -11,17 +11,17 @@
 
 ## Add Record
 ### Before
-![table](screenshots/before new218.JPG)
+![table](screenshots/beforeadd.JPG)
 
 ### After
 ![table](screenshots/new218.JPG)
 
-## Update Record
+## Edit/Update Record
 ### Before
-![table](screenshots/218 b4.jpg)
+![table](screenshots/b4ed.jpg)
 
 ### After
-![table](screenshots/after edit218.JPG)
+![table](screenshots/aftered.JPG)
 
 ## Delete a Record
 ![table](screenshots/delete218.JPG)
