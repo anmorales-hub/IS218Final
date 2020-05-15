@@ -4,7 +4,7 @@
 ![table](screenshots/218table.JPG)
 
 ## Homepage Data
-![table](screenshots/home 218.JPG)
+![table](screenshots/home.JPG)
 
 ## Single Record
 ![table](screenshots/detail218.JPG)
@@ -18,7 +18,7 @@
 
 ## Edit/Update Record
 ### Before
-![table](screenshots/b4ed.jpg)
+![table](screenshots/beforeed.jpg)
 
 ### After
 ![table](screenshots/aftered.JPG)
