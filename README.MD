@@ -24,6 +24,6 @@
 ![table](screenshots/after edit218.JPG)
 
 ## Delete a Record
-![table](screenshots/delete2018.JPG)
+![table](screenshots/delete218.JPG)
 
 Compare to Home Page screenshot: first record (Alex) is missing
