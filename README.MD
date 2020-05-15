@@ -18,7 +18,7 @@
 
 ## Update Record
 ### Before
-![table](screenshots/218 b4.JPG)
+![table](screenshots/218 b4.jpg)
 
 ### After
 ![table](screenshots/after edit218.JPG)
