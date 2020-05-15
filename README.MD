@@ -19,7 +19,7 @@
 ## Edit/Update Record
 
 ### Before
-![table](screenshots/bed.JPG)
+![table](screenshots/bed.jpg)
 
 ### After
 ![table](screenshots/aftered.JPG)
