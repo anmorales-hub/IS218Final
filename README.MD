@@ -1,4 +1,4 @@
-#Final Part 2
+# Final Part 2
 
 ## All Records in Postman
 ![display_data_postman](screenshots/all.JPG)
@@ -15,7 +15,7 @@
 
 ## PUT Request
 ### Before
-![display_data_postman](screenshots/preput.JPG)
+![display_data_postman](screenshots/preput.jpg)
 
 ### After
 ![display_data_postman](screenshots/postput.JPG)
