@@ -17,8 +17,9 @@
 ![table](screenshots/new218.JPG)
 
 ## Edit/Update Record
+
 ### Before
-![table](screenshots/beforeed.jpg)
+![table](screenshots/bed.jpg)
 
 ### After
 ![table](screenshots/aftered.JPG)
